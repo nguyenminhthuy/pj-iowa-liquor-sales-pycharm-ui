@@ -3,7 +3,7 @@ import dash_bootstrap_components as dbc
 
 layout = html.Div([
     dbc.Row([
-        html.H3("2012"),
+        html.H3("2018"),
         html.H3("Graph"),
     ], className='m-5'),
 
@@ -12,7 +12,7 @@ layout = html.Div([
         html.H3("Graph"),
     ], className='m-5'),
 
-], style={'backgroundColor': '#F0F8FF',
+], style={'backgroundColor': '#D8BFD8',
           'position': 'fixed',
           'width': '100%',
           'height': '100%',

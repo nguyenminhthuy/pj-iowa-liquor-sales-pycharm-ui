@@ -2,7 +2,8 @@ import dash
 import dash_bootstrap_components as dbc
 from dash import dcc, html
 from dash.dependencies import Input, Output, State
-from pages import home, detail_2012
+from pages import (home, detail_2012, detail_2013, detail_2014, detail_2015, detail_2016, detail_2017, detail_2018,
+                   detail_2019, detail_2020, detail_2021, detail_2022)
 from components import navbar
 
 app = dash.Dash(
@@ -20,8 +21,30 @@ app.layout = html.Div([dcc.Location(id="url"), navbar.header, content])
 def render_page_content(pathname):
     if pathname == "/":
         return home.layout
-    elif pathname == "/home2":
+    elif pathname == "/detail-2012":
         return detail_2012.layout
+    elif pathname == "/detail-2012":
+        return detail_2012.layout
+    elif pathname == "/detail-2013":
+        return detail_2013.layout
+    elif pathname == "/detail-2014":
+        return detail_2014.layout
+    elif pathname == "/detail-2015":
+        return detail_2015.layout
+    elif pathname == "/detail-2016":
+        return detail_2016.layout
+    elif pathname == "/detail-2017":
+        return detail_2017.layout
+    elif pathname == "/detail-2018":
+        return detail_2018.layout
+    elif pathname == "/detail-2019":
+        return detail_2019.layout
+    elif pathname == "/detail-2020":
+        return detail_2020.layout
+    elif pathname == "/detail-2021":
+        return detail_2021.layout
+    elif pathname == "/detail-2022":
+        return detail_2022.layout
     # If the user tries to reach a different page, return a 404 message
     return html.Div(
         [
