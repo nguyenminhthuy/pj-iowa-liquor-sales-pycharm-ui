@@ -1,5 +1,5 @@
-from dash import html, dash_table, dcc
 import dash_bootstrap_components as dbc
+from dash import html
 
 layout = html.Div([
     dbc.Row([
@@ -17,10 +17,4 @@ layout = html.Div([
         html.H3("Graph"),
     ], className='m-5'),
 
-], style={'backgroundColor': '#FFE4E1',
-          'position': 'fixed',
-          'width': '100%',
-          'height': '100%',
-          'left': '0px',
-          }
-)
+])
