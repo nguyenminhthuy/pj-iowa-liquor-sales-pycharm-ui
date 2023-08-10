@@ -1,6 +1,6 @@
 import dash_bootstrap_components as dbc
 from dash import html, dcc
-from components import jumbotron_2017
+from components import jumbotron_2017, cards_2017
 
 tab_style = {
     'borderBottom': '1px solid #d6d6d6',
@@ -15,6 +15,24 @@ tab_selected_style = {
 }
 
 layout = html.Div([
+    dbc.Row(
+        [
+            dbc.Col(dbc.Card(cards_2017.sale,
+                             color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards_2017.inv,
+                             color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards_2017.bottlesold,
+                             color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards_2017.volumesold,
+                             color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards_2017.statebottlecost,
+                             color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards_2017.statebottleretail,
+                             color="success", outline=True, className="shadow")),
+        ],
+        className="m-4",
+    ),
+
     dbc.Row([
         jumbotron_2017.left_jumbotron,
         jumbotron_2017.right_jumbotron],
