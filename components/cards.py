@@ -1,8 +1,8 @@
 import dash_bootstrap_components as dbc
-from dash import html
+from dash import html, callback, Output, Input
 
 sale = [
-    dbc.CardHeader("-2014-"),
+    dbc.CardHeader(id="year_sale_title"),
     dbc.CardBody(
         [
             html.H5("$100,000,000",
@@ -13,7 +13,7 @@ sale = [
 ]
 
 inv = [
-    dbc.CardHeader("-2014-"),
+    dbc.CardHeader(id="year_inv_title"),
     dbc.CardBody(
         [
             html.H5("$100,000,000",
@@ -24,7 +24,7 @@ inv = [
 ]
 
 bottlesold = [
-    dbc.CardHeader("-2014-"),
+    dbc.CardHeader(id="year_bottle_title"),
     dbc.CardBody(
         [
             html.H5("$100,000,000",
@@ -35,7 +35,7 @@ bottlesold = [
 ]
 
 volumesold = [
-    dbc.CardHeader("-2014-"),
+    dbc.CardHeader(id="year_volume_title"),
     dbc.CardBody(
         [
             html.H5("$100,000,000",
@@ -46,7 +46,7 @@ volumesold = [
 ]
 
 statebottlecost = [
-    dbc.CardHeader("-2014-"),
+    dbc.CardHeader(id="year_cost_title"),
     dbc.CardBody(
         [
             html.H5("$100,000,000",
@@ -57,7 +57,7 @@ statebottlecost = [
 ]
 
 statebottleretail = [
-    dbc.CardHeader("-2014-"),
+    dbc.CardHeader(id="year_retail_title"),
     dbc.CardBody(
         [
             html.H5("$100,000,000",
@@ -66,3 +66,51 @@ statebottleretail = [
         ]
     ),
 ]
+
+# -------------------------------------------------
+@callback(
+    Output('year_sale_title', 'children'),
+    Input('store_y', 'data'),
+)
+def selected_y(y):
+    return y
+
+# -------------------------------------------------
+@callback(
+    Output('year_inv_title', 'children'),
+    Input('store_y', 'data'),
+)
+def selected_y(y):
+    return y
+
+# -------------------------------------------------
+@callback(
+    Output('year_bottle_title', 'children'),
+    Input('store_y', 'data'),
+)
+def selected_y(y):
+    return y
+
+# -------------------------------------------------
+@callback(
+    Output('year_volume_title', 'children'),
+    Input('store_y', 'data'),
+)
+def selected_y(y):
+    return y
+
+# -------------------------------------------------
+@callback(
+    Output('year_cost_title', 'children'),
+    Input('store_y', 'data'),
+)
+def selected_y(y):
+    return y
+
+# -------------------------------------------------
+@callback(
+    Output('year_retail_title', 'children'),
+    Input('store_y', 'data'),
+)
+def selected_y(y):
+    return y

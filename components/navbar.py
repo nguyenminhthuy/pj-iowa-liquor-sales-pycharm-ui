@@ -1,7 +1,19 @@
 import dash_bootstrap_components as dbc
 from PIL import Image
-from dash import html
+from dash import html, dcc, Output, Input, callback
 from components import canvas
+
+year_dict = {1: '2012',
+             2: '2013',
+             3: '2014',
+             4: '2015',
+             5: '2016',
+             6: '2017',
+             7: '2018',
+             8: '2019',
+             9: '2020',
+             10: '2021',
+             11: '2022'}
 
 # Header
 header = dbc.Navbar(
@@ -24,55 +36,47 @@ header = dbc.Navbar(
                     ],
                     id="app-title",
                 )
-            ],
-                md=True,
-                align="center",
+            ], md=True, align="center",
             ),
+
         ],
             align="center",
         ),
 
         dbc.Row([
+            dbc.Col([
+                html.Div(dcc.Store(id='store_y', storage_type='session')),
+                dcc.Dropdown(
+                    id='year-dropdown',
+                    options=[
+                        {'label': dcc.Link(children=v, href="/details",
+                                           style={"text-decoration": "none", "color": "black"}),
+                         'value': k} for k, v in year_dict.items()
+                    ], style={"width": "200px"}, clearable=True),
+            ]),
+
             dbc.Col(
                 dbc.Button(children=[html.I(className="fa fa-home fa-lg")],
                            href="/",
-                           style=dict(fontSize="20px",
-                                      backgroundColor="rgb(237, 201, 72)",
-                                      textAlign="center",
-                                      color="black", border="none")
+                           style=dict(fontSize="20px", backgroundColor="rgb(237, 201, 72)",
+                                      textAlign="center", color="black", border="none")
                            ), md="auto",
             ),
 
-            dbc.Col(
-                dbc.DropdownMenu(
-                    [dbc.DropdownMenuItem("2012", href="/detail-2012"),
-                     dbc.DropdownMenuItem("2013", href="/detail-2013"),
-                     dbc.DropdownMenuItem("2014", href="/detail-2014"),
-                     dbc.DropdownMenuItem("2015", href="/detail-2015"),
-                     dbc.DropdownMenuItem("2016", href="/detail-2016"),
-                     dbc.DropdownMenuItem("2017", href="/detail-2017"),
-                     dbc.DropdownMenuItem("2018", href="/detail-2018"),
-                     dbc.DropdownMenuItem("2019", href="/detail-2019"),
-                     dbc.DropdownMenuItem("2020", href="/detail-2020"),
-                     dbc.DropdownMenuItem("2021", href="/detail-2021"),
-                     dbc.DropdownMenuItem("2022", href="/detail-2022")],
-                    label=[html.I(className="fa fa-calendar-minus-o fa-lg"), " Select a year of sales"],
-                    color="primary", className="m-1", size="lg",
-                    toggle_style={
-                        'background': 'rgb(237, 201, 72)',
-                        'color': 'black', 'border': '0px'
-                    },
-                ),
-                md="auto",
-            ),
-            dbc.Col(
-                canvas.off_canvas,
-                md="auto", )
+            dbc.Col(canvas.off_canvas,
+                    md="auto")  # Filter data functions
         ], align="center"),
-    ], className='m-2',
-        fluid=True,
+    ], className='m-2', fluid=True
     ),
     # dark=True,
     color="rgb(30 51 118)",
     sticky="top",
 )
+
+
+@callback(
+    Output('store_y', 'data'),
+    Input(component_id='year-dropdown', component_property='value'),
+)
+def update_text(chosen_val):  # the function argument comes from the component property of the Input
+    return chosen_val

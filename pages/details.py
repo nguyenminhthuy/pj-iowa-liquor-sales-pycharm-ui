@@ -1,6 +1,6 @@
 import dash_bootstrap_components as dbc
-from dash import html, dcc
-from components import jumbotron_2021, cards_2021
+from dash import html, dcc, callback, Output, Input, State, ALL
+from components import jumbotron, cards
 
 tab_style = {
     'borderBottom': '1px solid #d6d6d6',
@@ -17,31 +17,30 @@ tab_selected_style = {
 layout = html.Div([
     dbc.Row(
         [
-            dbc.Col(dbc.Card(cards_2021.sale,
+            dbc.Col(dbc.Card(cards.sale,
                              color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards_2021.inv,
+            dbc.Col(dbc.Card(cards.inv,
                              color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards_2021.bottlesold,
+            dbc.Col(dbc.Card(cards.bottlesold,
                              color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards_2021.volumesold,
+            dbc.Col(dbc.Card(cards.volumesold,
                              color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards_2021.statebottlecost,
+            dbc.Col(dbc.Card(cards.statebottlecost,
                              color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards_2021.statebottleretail,
+            dbc.Col(dbc.Card(cards.statebottleretail,
                              color="success", outline=True, className="shadow")),
-        ],
-        className="m-4",
+        ], className="m-4",
     ),
 
     dbc.Row([
-        jumbotron_2021.left_jumbotron,
-        jumbotron_2021.right_jumbotron],
+        jumbotron.left_jumbotron,
+        jumbotron.right_jumbotron],
         className="align-items-md-stretch m-3",
     ),
+
     dbc.Row([
         dcc.Tabs([
-            dcc.Tab(label='SALE REPORT',
-                    style=tab_style, selected_style=tab_selected_style,
+            dcc.Tab(label='SALE REPORT', style=tab_style, selected_style=tab_selected_style,
                     children=[
                         dcc.Graph(
                             figure={
@@ -53,11 +52,9 @@ layout = html.Div([
                                 ]
                             }
                         )
-                    ]
-                    ),
+                    ]),
 
-            dcc.Tab(label='QUANTITY REPORT',
-                    style=tab_style, selected_style=tab_selected_style,
+            dcc.Tab(label='QUANTITY REPORT', style=tab_style, selected_style=tab_selected_style,
                     children=[
                         dcc.Graph(
                             figure={
@@ -69,8 +66,7 @@ layout = html.Div([
                                 ]
                             }
                         )
-                    ]
-                    ),
+                    ]),
         ])
     ], className="align-items-md-stretch m-5",
     ),

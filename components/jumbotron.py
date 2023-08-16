@@ -1,7 +1,7 @@
 import dash_bootstrap_components as dbc
-from dash import html
+from dash import html, callback, Output, Input
 
-left_jumbotron = dbc.Col(
+left_jumbotron = dbc.Col([
     html.Div([
         html.H4("SALES/NUMBER OF INVOICES (2012)", className="display-7 text-center"),
         html.Hr(className="my-3"),
@@ -10,13 +10,13 @@ left_jumbotron = dbc.Col(
                 html.P("Graph1")
             ])
         ]),
-    ],
-        className="p-5 text-black rounded-3 shadow mb-5",
+    ], className="p-5 text-black rounded-3 shadow mb-5",
         style=dict(backgroundColor="#FFEBCD")
-    ), md=6
+    )
+], md=6
 )
 
-right_jumbotron = dbc.Col(
+right_jumbotron = dbc.Col([
     html.Div([
         html.H4("OTHERS (2012)", className="display-7 text-center"),
         html.Hr(className="my-3"),
@@ -25,8 +25,8 @@ right_jumbotron = dbc.Col(
                 html.P("Graph1")
             ])
         ])
-    ],
-        className="p-5 border rounded-3 shadow mb-5",
+    ], className="p-5 border rounded-3 shadow mb-5",
         style=dict(backgroundColor="#FFEBCD")
-    ), md=6
+    )
+], md=6
 )
