@@ -5,7 +5,7 @@ Software needs to be installed
 -----------------------------------------------------------
 3. Install libs needs (open terminal in pycharm to install):
 
-pip install dash dash-bootstrap-components Pillow pandas
+pip install dash dash-bootstrap-components Pillow pandas dash-ag-grid
 -----------------------------------------------------------
 4. Run project without doing anything
 
