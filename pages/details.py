@@ -1,6 +1,7 @@
 import dash_bootstrap_components as dbc
-from dash import html, dcc, callback, Output, Input, State, ALL
-from components import jumbotron, cards
+from dash import html, dcc, callback, Output, Input
+
+from components import cards
 
 tab_style = {
     'borderBottom': '1px solid #d6d6d6',
@@ -17,26 +18,34 @@ tab_selected_style = {
 layout = html.Div([
     dbc.Row(
         [
-            dbc.Col(dbc.Card(cards.sale,
-                             color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards.inv,
-                             color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards.bottlesold,
-                             color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards.volumesold,
-                             color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards.statebottlecost,
-                             color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards.statebottleretail,
-                             color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards.sale, color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards.inv, color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards.bottlesold, color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards.volumesold, color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards.statebottlecost, color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards.statebottleretail, color="success", outline=True, className="shadow")),
+        ], className="m-4",
+    ),
+
+    dbc.Row(
+        [
+            dbc.Col("Month graph", className="text-center border-end m-3"),
+            dbc.Col("DOW graph", className="text-center border-end m-3"),
+            dbc.Col("cards.volume_graph", className="text-center border-end m-3"),
+        ], className="m-4",
+    ),
+
+    dbc.Row(
+        [
+            dbc.Col("Month graph", className="text-center border-end m-3"),
+            dbc.Col("DOW graph", className="text-center border-end m-3"),
         ], className="m-4",
     ),
 
     dbc.Row([
-        jumbotron.left_jumbotron,
-        jumbotron.right_jumbotron],
-        className="align-items-md-stretch m-3",
-    ),
+        html.H3("TOP GROSSING ITEMS", style={"color": "rgb(30 51 118)"}),
+        html.Hr(style={"width": "100%", "border":"2px solid #d62728"}),
+    ], className='m-5'),
 
     dbc.Row([
         dcc.Tabs([
@@ -71,6 +80,7 @@ layout = html.Div([
     ], className="align-items-md-stretch m-5",
     ),
 ])
+
 
 @callback(
     Output('left_tab_title', 'label'),
