@@ -1,5 +1,6 @@
 import dash_bootstrap_components as dbc
-from dash import html, callback, Output, Input
+from dash import html, callback, Output, Input, dcc
+import plotly.graph_objs as go
 
 sale = [
     dbc.CardHeader(id="card_sale_title"),
@@ -23,7 +24,7 @@ inv = [
     ),
 ]
 
-bottlesold = [
+bottleSold = [
     dbc.CardHeader(id="card_bottle_title"),
     dbc.CardBody(
         [
@@ -34,7 +35,7 @@ bottlesold = [
     ),
 ]
 
-volumesold = [
+volumeSold = [
     dbc.CardHeader(id="card_volume_title"),
     dbc.CardBody(
         [
@@ -45,7 +46,7 @@ volumesold = [
     ),
 ]
 
-statebottlecost = [
+stateBottleCost = [
     dbc.CardHeader(id="card_cost_title"),
     dbc.CardBody(
         [
@@ -56,7 +57,7 @@ statebottlecost = [
     ),
 ]
 
-statebottleretail = [
+stateBottleRetail = [
     dbc.CardHeader(id="card_retail_title"),
     dbc.CardBody(
         [
@@ -66,6 +67,97 @@ statebottleretail = [
         ]
     ),
 ]
+
+# -------------------------------------------------
+fig = go.Figure(data=[go.Scatter(x=[1, 2, 3], y=[4, 1, 2])])
+month_graph = ([
+    html.H6("Sales Month over Month Growth"),
+    html.Div([
+        dcc.Graph(figure=fig)
+    ])
+])
+
+dow_graph = ([
+    html.H6("Sales by Day of Week"),
+    html.Div([
+        dcc.Graph(figure=fig)
+    ])
+])
+
+m_dow_graph = ([
+    html.H6("Sales by Month and Day of Week"),
+    html.Div([
+        dcc.Graph(figure=fig)
+    ])
+])
+
+# -------------------------------------------------
+top_highestItem_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_lowestItems_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_mostItem_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_leastItem_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+# -------------------------------------------------
+top_highestCat_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_lowestCat_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_mostCat_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_leastCat_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+# -------------------------------------------------
+top_highestVendor_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_lowestVendor_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_mostVendor_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_leastVendor_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+# -------------------------------------------------
+top_highestStore_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_lowestStore_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_mostStore_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
+
+top_leastStore_graph = ([
+    html.Div(dcc.Graph(figure=fig))
+])
 
 # -------------------------------------------------
 @callback(

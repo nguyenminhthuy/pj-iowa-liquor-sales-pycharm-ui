@@ -18,66 +18,97 @@ tab_selected_style = {
 layout = html.Div([
     dbc.Row(
         [
+            html.H3("GENERAL INFORMATION", style={"color": "rgb(30 51 118)"}),
+            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
             dbc.Col(dbc.Card(cards.sale, color="success", outline=True, className="shadow")),
             dbc.Col(dbc.Card(cards.inv, color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards.bottlesold, color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards.volumesold, color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards.statebottlecost, color="success", outline=True, className="shadow")),
-            dbc.Col(dbc.Card(cards.statebottleretail, color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards.bottleSold, color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards.volumeSold, color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards.stateBottleCost, color="success", outline=True, className="shadow")),
+            dbc.Col(dbc.Card(cards.stateBottleRetail, color="success", outline=True, className="shadow")),
+        ], className="m-5",
+    ),
+
+    dbc.Row(
+        [
+            html.H3("OVERALL SALES PER MONTH AND DAY OF WEEK", style={"color": "rgb(30 51 118)"}),
+            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
+            dbc.Col(cards.month_graph, className="text-center border-end m-3"),
+            dbc.Col(cards.m_dow_graph, className="text-center border-end m-3"),
+            dbc.Col(cards.dow_graph, className="text-center border-end m-3"),
         ], className="m-4",
     ),
 
     dbc.Row(
         [
-            dbc.Col("Month graph", className="text-center border-end m-3"),
-            dbc.Col("DOW graph", className="text-center border-end m-3"),
-            dbc.Col("cards.volume_graph", className="text-center border-end m-3"),
+            html.H3("TOP GROSSING ITEMS", style={"color": "rgb(30 51 118)"}),
+            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
+            dbc.Col(cards.top_highestItem_graph, className="text-center border-end m-3"),
+            dbc.Col(cards.top_lowestItems_graph, className="text-center border-end m-3"),
         ], className="m-4",
     ),
 
     dbc.Row(
         [
-            dbc.Col("Month graph", className="text-center border-end m-3"),
-            dbc.Col("DOW graph", className="text-center border-end m-3"),
+            html.H3("TOP POPULAR ITEMS", style={"color": "rgb(30 51 118)"}),
+            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
+            dbc.Col(cards.top_mostItem_graph, className="text-center border-end m-3"),
+            dbc.Col(cards.top_leastItem_graph, className="text-center border-end m-3"),
         ], className="m-4",
     ),
 
-    dbc.Row([
-        html.H3("TOP GROSSING ITEMS", style={"color": "rgb(30 51 118)"}),
-        html.Hr(style={"width": "100%", "border":"2px solid #d62728"}),
-    ], className='m-5'),
+    dbc.Row(
+        [
+            html.H3("TOP GROSSING CATEGORIES", style={"color": "rgb(30 51 118)"}),
+            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
+            dbc.Col(cards.top_highestCat_graph, className="text-center border-end m-3"),
+            dbc.Col(cards.top_lowestCat_graph, className="text-center border-end m-3"),
+        ], className="m-4",
+    ),
 
-    dbc.Row([
-        dcc.Tabs([
-            dcc.Tab(id="left_tab_title", style=tab_style, selected_style=tab_selected_style,
-                    children=[
-                        dcc.Graph(
-                            figure={
-                                'data': [
-                                    {'x': [1, 2, 3], 'y': [4, 1, 2],
-                                     'type': 'bar', 'name': 'SF'},
-                                    {'x': [1, 2, 3], 'y': [2, 4, 5],
-                                     'type': 'bar', 'name': 'Montréal'},
-                                ]
-                            }
-                        )
-                    ]),
+    dbc.Row(
+        [
+            html.H3("TOP POPULAR CATEGORIES", style={"color": "rgb(30 51 118)"}),
+            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
+            dbc.Col(cards.top_mostCat_graph, className="text-center border-end m-3"),
+            dbc.Col(cards.top_leastCat_graph, className="text-center border-end m-3"),
+        ], className="m-4",
+    ),
 
-            dcc.Tab(id="right_tab_title", style=tab_style, selected_style=tab_selected_style,
-                    children=[
-                        dcc.Graph(
-                            figure={
-                                'data': [
-                                    {'x': [1, 2, 3], 'y': [1, 4, 1],
-                                     'type': 'bar', 'name': 'SF'},
-                                    {'x': [1, 2, 3], 'y': [1, 2, 3],
-                                     'type': 'bar', 'name': 'Montréal'},
-                                ]
-                            }
-                        )
-                    ]),
-        ])
-    ], className="align-items-md-stretch m-5",
+dbc.Row(
+        [
+            html.H3("TOP GROSSING VENDORS", style={"color": "rgb(30 51 118)"}),
+            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
+            dbc.Col(cards.top_highestVendor_graph, className="text-center border-end m-3"),
+            dbc.Col(cards.top_lowestVendor_graph, className="text-center border-end m-3"),
+        ], className="m-4",
+    ),
+
+    dbc.Row(
+        [
+            html.H3("TOP POPULAR VENDORS", style={"color": "rgb(30 51 118)"}),
+            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
+            dbc.Col(cards.top_mostVendor_graph, className="text-center border-end m-3"),
+            dbc.Col(cards.top_leastVendor_graph, className="text-center border-end m-3"),
+        ], className="m-4",
+    ),
+
+    dbc.Row(
+        [
+            html.H3("TOP GROSSING STORE", style={"color": "rgb(30 51 118)"}),
+            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
+            dbc.Col(cards.top_highestStore_graph, className="text-center border-end m-3"),
+            dbc.Col(cards.top_lowestStore_graph, className="text-center border-end m-3"),
+        ], className="m-4",
+    ),
+
+    dbc.Row(
+        [
+            html.H3("TOP POPULAR STORE", style={"color": "rgb(30 51 118)"}),
+            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
+            dbc.Col(cards.top_mostStore_graph, className="text-center border-end m-3"),
+            dbc.Col(cards.top_leastStore_graph, className="text-center border-end m-3"),
+        ], className="m-4",
     ),
 ])
 
