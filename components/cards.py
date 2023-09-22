@@ -108,20 +108,17 @@ volumeSold = [
 fig = go.Figure(data=[go.Scatter(x=[1, 2, 3], y=[4, 1, 2])])
 month_graph = ([
     html.Div([
-        html.H5("Sales Monthly Trend (vs Previous year)"),
         dcc.Graph(figure=fig)
     ])
 ])
 
 dow_graph = ([
-    html.H5("Sales Day of Week Trend"),
     html.Div([
         dcc.Graph(figure=fig)
     ])
 ])
 
 m_dow_graph = ([
-    html.H5("Heatmap of Sales by Month and Day of Week"),
     html.Div([
         dcc.Graph(figure=fig)
     ])

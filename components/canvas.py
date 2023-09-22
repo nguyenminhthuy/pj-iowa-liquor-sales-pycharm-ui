@@ -1,5 +1,5 @@
 import dash_bootstrap_components as dbc
-from dash import html, dcc, dash
+from dash import html, dcc
 
 btn_filter = html.Span([html.I(className="fa fa-filter fa-lg"), " Filter Data"])
 
