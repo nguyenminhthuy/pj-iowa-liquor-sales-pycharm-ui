@@ -1,5 +1,5 @@
 import dash_bootstrap_components as dbc
-from dash import html, callback, Output, Input
+from dash import html, callback, Output, Input, dcc
 
 from components import cards
 
@@ -36,6 +36,61 @@ layout = html.Div([
             dbc.Col(cards.dow_graph, className="text-center border-end m-3"),
         ], className="m-4",
     ),
+
+    dcc.Tabs([
+        dcc.Tab(label='Tab one', children=[
+            dbc.Row([
+                dbc.Col([
+                    dcc.Graph(
+                        figure={
+                            'data': [
+                                {'x': [1, 2, 3], 'y': [4, 1, 2],
+                                    'type': 'bar', 'name': 'SF'},
+                                {'x': [1, 2, 3], 'y': [2, 4, 5],
+                                 'type': 'bar', 'name': 'Montréal'},
+                            ]
+                        }
+                    )
+                ]),
+                dbc.Col([
+                    dcc.Graph(
+                        figure={
+                            'data': [
+                                {'x': [1, 2, 3], 'y': [4, 1, 2],
+                                    'type': 'bar', 'name': 'SF'},
+                                {'x': [1, 2, 3], 'y': [2, 4, 5],
+                                 'type': 'bar', 'name': 'Montréal'},
+                            ]
+                        }
+                    )
+                ])
+            ])
+        ], style=tab_style, selected_style=tab_selected_style),
+        dcc.Tab(label='Tab two', children=[
+            dcc.Graph(
+                figure={
+                    'data': [
+                        {'x': [1, 2, 3], 'y': [1, 4, 1],
+                            'type': 'bar', 'name': 'SF'},
+                        {'x': [1, 2, 3], 'y': [1, 2, 3],
+                         'type': 'bar', 'name': 'Montréal'},
+                    ]
+                }
+            )
+        ], style=tab_style, selected_style=tab_selected_style),
+        dcc.Tab(label='Tab three', children=[
+            dcc.Graph(
+                figure={
+                    'data': [
+                        {'x': [1, 2, 3], 'y': [2, 4, 3],
+                            'type': 'bar', 'name': 'SF'},
+                        {'x': [1, 2, 3], 'y': [5, 4, 3],
+                         'type': 'bar', 'name': 'Montréal'},
+                    ]
+                }
+            )
+        ], style=tab_style, selected_style=tab_selected_style),
+    ], className="m-4"),
 
     dbc.Row(
         [
