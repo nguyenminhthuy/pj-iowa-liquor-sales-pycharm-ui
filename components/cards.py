@@ -170,14 +170,6 @@ top_mostCity_graph = ([
 ])
 
 # -------------------------------------------------
-top_highestCounty_graph = ([
-    html.Div(dcc.Graph(figure=fig))
-])
-
-top_mostCounty_graph = ([
-    html.Div(dcc.Graph(figure=fig))
-])
-# -------------------------------------------------
 @callback(
     Output('card_sale_title', 'children'), # sale
     Output('card_total_sales', 'children'),
