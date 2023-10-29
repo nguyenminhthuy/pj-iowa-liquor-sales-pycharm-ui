@@ -5,8 +5,6 @@ from components import cards
 layout = html.Div([
     dbc.Row(
         [
-            html.H3("SALES PERFORMANCE DASHBOARD", style={"color": "rgb(30 51 118)"}),
-            html.Hr(style={"width": "100%", "border": "2px solid #d62728"}),
             dbc.Col([
                 dbc.Row([
                     html.H5("SALES HISTORICAL TREND 2012-2022"),
@@ -19,7 +17,7 @@ layout = html.Div([
 
             dbc.Col([
                 dbc.Row([
-                    html.H5("GROSS PROFIT HISTORICAL TREND 2012-2022"),
+                    html.H5("COST AND GROSS PROFIT HISTORICAL TREND 2012-2022"),
                     dbc.Col(cards.month_graph, className="text-center m-3")
                 ], className="text-center m-4"),
                 dbc.Row(

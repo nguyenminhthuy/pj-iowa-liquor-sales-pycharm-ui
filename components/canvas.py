@@ -1,7 +1,7 @@
 import dash_bootstrap_components as dbc
 from dash import html, dcc
 
-btn_filter = html.Span([html.I(className="fa fa-filter fa-lg"), " Filter Data"])
+btn_filter = html.Span([html.I(className="fa fa-search fa-lg"), " Filter Data"])
 
 off_canvas = html.Div(
     [
@@ -11,6 +11,12 @@ off_canvas = html.Div(
                                           textAlign="center", color="black", border="none")
                    ),
         dbc.Offcanvas([
+                html.Div([
+                        html.P("Year"),
+                        dcc.Dropdown(
+                            ['2012', '2013', '2014','2015','2016','2017','2018','2019','2020','2021','2022'],
+                            placeholder="Select...", multi=True
+                        )], className="mb-3"),
                 html.Div([
                         html.P("Item name"),
                         dcc.Dropdown(
@@ -36,26 +42,15 @@ off_canvas = html.Div(
                             placeholder="Select...", multi=True
                         )], className="mb-3"),
                 html.Div([
-                        html.P("City name"),
-                        dcc.Dropdown(
-                            ['New York City', 'Montreal', 'San Francisco'],
-                            placeholder="Select...", multi=True
-                        )], className="mb-3"),
-                html.Div([
-                        html.P("County name"),
-                        dcc.Dropdown(
-                            ['New York City', 'Montreal', 'San Francisco'],
-                            placeholder="Select...", multi=True
-                        )], className="mb-3"),
-                html.Div([
                         dbc.Button("SUBMIT",
-                                   className='btn-search',
+                                   href="/search",
+                                   className='btn-search p-2',
                                    style={
                                        'background-color': 'rgb(237, 201, 72)',
                                        'color': 'rgb(30, 51, 118)',
                                        'border': '0px', 'font-weight': 'bold'
                                    })
-                     ], className="m-3 d-grid gap-2"),
+                     ], className="m-4 d-grid gap-3"),
             ],
             id="offcanvas-scrollable",
             scrollable=True,

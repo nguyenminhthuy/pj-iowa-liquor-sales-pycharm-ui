@@ -5,15 +5,19 @@ import plotly.graph_objs as go
 sale = [
     dbc.CardHeader(id="card_sale_title", className="text-center"),
     dbc.CardBody([
-        dbc.Row(html.H5(id="card_total_sales", className="card-title text-center", style={"color": "#32CD32"}),),
+        dbc.Row(html.H3(id="card_total_sales",
+                        className="card-title text-center",
+                        style={"color": "#FF1493"})),
         dbc.Row([
             dbc.Col([
-                html.Span("Previous", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Previous", className="text-center"),
+                html.H5("100,000", id="card_sales_previous", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
             dbc.Col([
-                html.Span("Different", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Different", className="text-center"),
+                html.H5("100,000", id="card_sales_diff", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
         ])
     ])
@@ -22,83 +26,103 @@ sale = [
 cost_sales = [
     dbc.CardHeader(id="card_cost_title", className="text-center"),
     dbc.CardBody([
-        dbc.Row(html.H5(id="card_total_cost", className="card-title text-center", style={"color": "#32CD32"}),),
+        dbc.Row(html.H3(id="card_total_cost",
+                        className="card-title text-center",
+                        style={"color": "#FF1493"})),
         dbc.Row([
             dbc.Col([
-                html.Span("Previous", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Previous", className="text-center"),
+                html.H5("100,000", id="card_cost_previous", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
             dbc.Col([
-                html.Span("Different", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Different", className="text-center"),
+                html.H5("100,000", id="card_cost_diff", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
         ])
     ])
 ]
 
 gross_profit = [
-    dbc.CardHeader(id="card_grossProfit_title", className="text-center"),
+    dbc.CardHeader(html.H6(id="card_grossProfit_title", className="text-center")),
     dbc.CardBody([
-        dbc.Row(html.H5(id="card_total_grossProfit", className="card-title text-center", style={"color": "#32CD32"}),),
+        dbc.Row(html.H3(id="card_total_grossProfit",
+                        className="card-title text-center",
+                        style={"color": "#FF1493"})),
         dbc.Row([
             dbc.Col([
-                html.Span("Previous", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Previous", className="text-center"),
+                html.H5("100,000", id="card_profit_previous", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
             dbc.Col([
-                html.Span("Different", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Different", className="text-center"),
+                html.H5("100,000", id="card_profit_diff", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
         ])
     ])
 ]
 
 inv = [
-    dbc.CardHeader(id="card_inv_title", className="text-center"),
+    dbc.CardHeader(html.H6(id="card_inv_title", className="text-center")),
     dbc.CardBody([
-        dbc.Row(html.H5(id="card_total_inv", className="card-title text-center", style={"color": "#32CD32"}),),
+        dbc.Row(html.H3(id="card_total_inv",
+                        className="card-title text-center",
+                        style={"color": "#FF1493"})),
         dbc.Row([
             dbc.Col([
-                html.Span("Previous", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Previous", className="text-center"),
+                html.H5("100,000", id="card_inv_previous", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
             dbc.Col([
-                html.Span("Different", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Different", className="text-center"),
+                html.H5("100,000", id="card_inv_diff", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
         ])
     ])
 ]
 
 bottleSold = [
-    dbc.CardHeader(id="card_bottle_title", className="text-center"),
+    dbc.CardHeader(html.H6(id="card_bottle_title", className="text-center")),
     dbc.CardBody([
-        dbc.Row(html.H5(id="card_total_bottle", className="card-title text-center", style={"color": "#32CD32"}),),
+        dbc.Row(html.H3(id="card_total_bottle",
+                        className="card-title text-center",
+                        style={"color": "#FF1493"})),
         dbc.Row([
             dbc.Col([
-                html.Span("Previous", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Previous", className="text-center"),
+                html.H5("100,000", id="card_bottle_previous", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
             dbc.Col([
-                html.Span("Different", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Different", className="text-center"),
+                html.H5("100,000", id="card_bottle_diff", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
         ])
     ])
 ]
 
 volumeSold = [
-    dbc.CardHeader(id="card_volume_title", className="text-center"),
+    dbc.CardHeader(html.H6(id="card_volume_title", className="text-center")),
     dbc.CardBody([
-        dbc.Row(html.H5(id="card_total_volume", className="card-title text-center", style={"color": "#32CD32"}),),
+        dbc.Row(html.H3(id="card_total_volume",
+                        className="card-title text-center",
+                        style={"color": "#FF1493"})),
         dbc.Row([
             dbc.Col([
-                html.Span("Previous", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Previous", className="text-center"),
+                html.H5("100,000", id="card_volume_previous", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
             dbc.Col([
-                html.Span("Different", className="text-center"),
-                html.P("$10,000", className="text-center")
+                html.P("Different", className="text-center"),
+                html.H5("100,000", id="card_volume_diff", className="text-center",
+                        style={"color": "#1E90FF"})
             ]),
         ])
     ])
@@ -168,7 +192,6 @@ top_highestCity_graph = ([
 top_mostCity_graph = ([
     html.Div(dcc.Graph(figure=fig))
 ])
-
 # -------------------------------------------------
 @callback(
     Output('card_sale_title', 'children'), # sale

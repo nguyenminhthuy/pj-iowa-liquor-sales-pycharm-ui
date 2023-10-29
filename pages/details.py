@@ -19,6 +19,7 @@ layout = html.Div([
     dbc.Row(
         [
             # SALES ANALYSIS OVERVIEW
+            dbc.Badge("Success", color="success", className="me-1"),
             html.H3(id="overview_title", style={"color": "#FF7F50"}),
             dbc.Col(dbc.Card(cards.sale, color="info", outline=True, className="shadow")),
             dbc.Col(dbc.Card(cards.cost_sales, color="info", outline=True, className="shadow")),
