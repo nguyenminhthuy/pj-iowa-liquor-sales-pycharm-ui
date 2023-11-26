@@ -1,6 +1,5 @@
 import dash_bootstrap_components as dbc
 from dash import html, dcc, Output, Input, callback, ALL, ctx, State
-
 from components import cards_search
 
 tab_style = {
@@ -15,7 +14,7 @@ tab_selected_style = {
     'color': 'black',
 }
 
-keyword_dict = {'2012', '2013', '2014', '2015'}
+keyword_dict = ['2012', '2013', '2014', '2015']
 
 layout = html.Div([
     html.Img(id="backtotop"),
@@ -23,7 +22,7 @@ layout = html.Div([
         dbc.Col(
             dcc.Dropdown(
                 ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
-                placeholder="Select year...", multi=True,
+                placeholder="Select year...",
                 id="dropdown_year_search"
             ),
             width=3,
@@ -47,20 +46,7 @@ layout = html.Div([
     dbc.Row([
         html.H6("Result for:"),
         html.Div(id="lstSearch_result"),
-    ], className="m-5"),
-
-    dbc.Row([
-        dbc.ListGroup(
-            [
-                dbc.ListGroupItem(
-                    f"Item {i}",
-                    id={"type": "list-keyword-rs", "index": i},
-                    action=True
-                )
-                for i in keyword_dict
-            ],
-            id="list-group",
-        ),
+        html.Div(id="lstSearch_group"),
     ], className="m-5"),
 
     dbc.Row([
@@ -148,11 +134,25 @@ layout = html.Div([
 
 @callback(
     Output('lstSearch_result', 'children'),
+    Output('lstSearch_group', 'children'),
     Input('btnSubmit', 'n_clicks'),
     [State('dropdown_year_search', 'value'),
      State('txt_keyword', 'value')])
 def btnSubmit_click(n_clicks, year_val, key_val):
-    return 'A computation based off of {}, and {}'.format(year_val, key_val)
+    global lst_result, lst_group
+
+    lst_result = 'Value inputted {}, and {}'.format(year_val, key_val)
+    lst_group = [
+        dbc.ListGroup([
+            dbc.ListGroupItem(
+                f"Item {i}",
+                id={"type": "list-keyword-rs", "index": i},
+                action=True)
+                for i in list(keyword_dict)
+            ],
+            id="list-group",
+        )]
+    return lst_result, lst_group
 
 @callback(
     Output("keyword_selected", "children"),
