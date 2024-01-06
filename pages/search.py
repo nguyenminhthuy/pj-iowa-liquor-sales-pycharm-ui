@@ -1,5 +1,5 @@
 import dash_bootstrap_components as dbc
-from dash import html, dcc, Output, Input, callback, ALL, ctx, State
+from dash import html, dcc, Output, Input, callback, ALL, ctx, State, dash_table
 from components import cards_search
 
 tab_style = {
@@ -152,14 +152,17 @@ def btnSubmit_click(n_clicks, year_val, key_val):
             ],
             id="list-group",
         )]
+
     return lst_result, lst_group
 
 @callback(
     Output("keyword_selected", "children"),
     Input({'type': 'list-keyword-rs', 'index': ALL}, 'n_clicks'),
+    [State('dropdown_year_search', 'value')],
     prevent_initial_call=True
 )
-def searchResult_selected(_):
-    return f"Clicked on Item {ctx.triggered_id.index}"
+def searchResult_selected(_, year_val):
+    selected_keyword = ctx.triggered_id.index
+    return f"Clicked on Item {selected_keyword} {year_val}"
 
 
